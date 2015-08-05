@@ -1,10 +1,8 @@
 <?php
 
-include_once("model/DB/DBConection.php");
-
 class ModelGeneral {
 	
-	private $tableNameUsers =  'tblempleados'; // Nombre de la tabla donde estan los usuarios /user and pass
+	private $tableNameUsers =  'usuarios'; // Nombre de la tabla donde estan los usuarios /user and pass
 	
 	/*
 	 * GESTION DEL LOGIN
