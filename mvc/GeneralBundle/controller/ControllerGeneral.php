@@ -8,7 +8,7 @@
  * 04/08/2015
  */
 
-include_once("model/general/ModelGeneral.php");
+include_once("mvc/GeneralBundle/model/ModelGeneral.php");
 
 class Controller {
 	public $model;
@@ -22,7 +22,7 @@ class Controller {
 	public function indexPrincipal()
 	{
 
-	  	include 'view/general/indexView.php';
+	  	include 'mvc/GeneralBundle/view/indexView.php';
 	}	
 
 }

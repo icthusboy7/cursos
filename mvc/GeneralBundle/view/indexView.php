@@ -4,7 +4,7 @@
     <head>
 		<meta charset="UTF-8">
         <title>Cursos</title>
-        <link type="text/css" rel="stylesheet" href="css/principal.css" />  
+        <link type="text/css" rel="stylesheet" href="css/general.css" />  
 	</head>
     <body>
     <div style="margin-top: 60px;text-align: center;">
