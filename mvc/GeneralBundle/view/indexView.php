@@ -1,4 +1,4 @@
-
+﻿
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,6 +9,12 @@
     <body>
     <div style="margin-top: 60px;text-align: center;">
         <h1>Cursos</h1>
+        <?php 
+        // ERROR EN LOGIN
+        if (isset($_POST['validUser']) and $_POST['validUser'] === false){
+        echo '<b><p style= "color: red"> Nombre de usuario y contraseña incorrecta. </p></b>';
+        }
+        ?>
     </div> 	  
     
     <div id='login'>

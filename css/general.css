@@ -1,4 +1,4 @@
-
+﻿
 body {margin:20px; font:100.1%/1.1; font-family: Verdana, Arial, Helvetica, sans-serif; background-color:#eee; }
 h1 {font: Tahoma, Arial;color:#0B3861; font-size: 2em;}
 
@@ -24,7 +24,7 @@ a:hover {color:#DC143C;}
 #login{
 
 	position: absolute;
-	top: 50%;
+	top: 55%;
 	left: 50%;
 	width: 600px;
 	height: 200px;

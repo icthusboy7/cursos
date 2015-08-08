@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * CONTROLLER GENERAL
@@ -22,13 +22,13 @@ class Controller {
     public function menuPrincipal()
 	{
 		@session_start();
-		if ($_SESSION["rol1"] == 1)
+		if ($_SESSION["rol"] == 1)
 		{
 	  		include '../mvc/PrincipalBundle/view/menuView.php';
 	  	}
 	  	else
 	  	{
-	  		echo '<h1>No tiene permisos para acceder a esta pagina.</h1>';
+	  		echo '<h1>No tiene permisos para acceder a esta página.</h1>';
 	  	}
 	}		
 }

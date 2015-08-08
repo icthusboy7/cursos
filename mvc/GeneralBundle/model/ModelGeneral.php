@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 include_once("db/Connection.php");
 
@@ -11,12 +11,13 @@ class ModelGeneral {
 	 * Obtiene parametros por pot y hace set de los parametros
 	 */
 
-	public function getDataByLogin($a_user,$a_pass){
+	public function getDataByLogin($a_user,$a_passMD5){
+		
 		$database = new Database();
 		$query = '	SELECT *
 					FROM Usuarios
 					WHERE Usuario =  \''.$a_user.'\'
-					AND password= \''.$a_pass.'\'';
+					AND password= \''.$a_passMD5.'\'';
 		$consulta = $database->customQuery($query);
 		
 		return $consulta;
