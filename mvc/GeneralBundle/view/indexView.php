@@ -13,11 +13,11 @@
     
     <div id='login'>
                 <h1>Inicio de sesión </h1>
-                <form method='POST'  id="loginusr" action="">
+                <form method='POST'  id="loginusr" action="index.php">
                     
                     <table>
                         <tr><td><label for="username">Nombre de usuario:</td>
-                            <td><input id="username" name="username" type="text" ></tr><tr>
+                            <td><input id="usuario" name="usuario" type="text" ></tr><tr>
                             <td>
                                 <label for="password"> Contraseña:
                             </td>
