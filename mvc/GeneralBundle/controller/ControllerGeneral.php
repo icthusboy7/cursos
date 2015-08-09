@@ -34,8 +34,17 @@ class Controller {
 			if($row = mysql_fetch_array($rs))
 			{
 				session_start();
+				$_SESSION["iduser"]= $row['pk_usuario'];
 				$_SESSION["rol"]= $row['fk_perfil'];
-				header("Location: public/menu.php");	
+				if($row['fk_perfil'] == 1)
+				{
+					header("Location: backend/menu.php");
+				}
+				else
+				{
+					header("Location: frontend/menu.php");
+				}
+
 			} 
 			else 
 			{

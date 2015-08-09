@@ -2,7 +2,7 @@
 
 include_once("../db/Connection.php");
 
-class ModelPrincipal {
+class ModelFrontend {
 	
 	private $tableNameUsers =  'Usuarios'; // Nombre de la tabla donde estan los usuarios /user and pass
 	

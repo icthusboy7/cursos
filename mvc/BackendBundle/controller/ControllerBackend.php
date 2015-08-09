@@ -3,28 +3,28 @@
 /**
  * CONTROLLER GENERAL
  *
- * @descripcion Controlador "Principal"
+ * @descripcion Controlador "Backend"
  * @author VICTOR BACA
- * 06/08/2015
+ * 09/08/2015
  */
 
-include_once("../mvc/PrincipalBundle/model/ModelPrincipal.php");
+include_once("../mvc/BackendBundle/model/ModelBackend.php");
 
 class Controller {
 	public $model;
 
 	public function __construct()
 	{
-		$this->model = new ModelPrincipal();
+		$this->model = new ModelBackend();
 
 	}
 
-    public function menuPrincipal()
+    public function menuBackend()
 	{
 		@session_start();
 		if ($_SESSION["rol"] == 1)
 		{
-	  		include '../mvc/PrincipalBundle/view/menuView.php';
+	  		include '../mvc/BackendBundle/view/backendmenuView.php';
 	  	}
 	  	else
 	  	{
