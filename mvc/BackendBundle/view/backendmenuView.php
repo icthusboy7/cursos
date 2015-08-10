@@ -45,7 +45,7 @@
                                 <li><a href="typography.html">Cursos</a></li>
                             </ul>
                         </li>
-                        <li><a href="index.html">Salir</a></li>
+                        <li><a href="../index.php?logout=true">Salir</a></li>
                     </ul>
                 </div>
             </div>

@@ -24,11 +24,11 @@ a:hover {color:#DC143C;}
 #login{
 
 	position: absolute;
-	top: 55%;
+	top: 50%;
 	left: 50%;
 	width: 600px;
 	height: 200px;
-	margin-top: -200px;
+	margin-top: -140px;
 	margin-left: -300px;
 	border: 1px solid #0B3861;
 }

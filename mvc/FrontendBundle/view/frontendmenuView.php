@@ -39,6 +39,7 @@
                 <div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="../index.php?logout=true">Salir</a></li>
                     </ul>
                 </div>
             </div>

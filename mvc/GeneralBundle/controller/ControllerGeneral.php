@@ -52,6 +52,11 @@ class Controller {
 			}
 		}
 
+		if($_GET["logout"]==true){
+			session_start();
+			session_destroy();	  		  		
+	  	}
+
 	  	include 'mvc/GeneralBundle/view/indexView.php';
 	}	
 
