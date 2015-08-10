@@ -1,6 +1,6 @@
 ﻿
 body {margin:20px; font:100.1%/1.1; font-family: Verdana, Arial, Helvetica, sans-serif; background-color:#eee; }
-h1 {font: Tahoma, Arial;color:#0B3861; font-size: 2em;}
+h1 {font: Tahoma, Arial;color:#68A4C4; font-size: 2em;}
 
 h3 {color:#eee; 
 	font-family:  Tahoma, Arial; 
@@ -13,7 +13,7 @@ h3 {color:#eee;
 	line-height: 1.5em; 
         text-align: center;
 	margin:0;}
-h4 {background-color:#0B3861; color:#fff; font-size: 1.1em; margin:0; line-height:1.6em; text-align:center;}
+h4 {background-color:#68A4C4; color:#fff; font-size: 1.1em; margin:0; line-height:1.6em; text-align:center;}
 img.vinculo {border:1px solid #EEE; width:155px; height:100px;}
 span{display:inline-block;}
 a {text-decoration: none; }
@@ -30,11 +30,11 @@ a:hover {color:#DC143C;}
 	height: 200px;
 	margin-top: -140px;
 	margin-left: -300px;
-	border: 1px solid #0B3861;
+	border: 1px solid #68A4C4;
 }
-	#login h1{background-color:#0B3861; color:#fff; font-size: 1.2em; margin:0; line-height:2em; text-align:center;}
+	#login h1{background-color:#68A4C4; color:#fff; font-size: 1.2em; margin:0; line-height:2em; text-align:center;}
 	#login table{width: 100%;text-align:left;}
 	#login td{width: 40%; padding-left:2em; line-height:3em;}
 	#login input[type=text], #login input[type=email], #login input[type=password]
-	{width: 85%; height:2em;border:1px solid #0B3861;background-color:white;}
+	{width: 85%; height:2em;border:1px solid #68A4C4;background-color:white;}
 	#login input[type=button], #login input[type=submit]{width: 40%; height:2.5em;}
