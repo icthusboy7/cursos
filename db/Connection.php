@@ -48,6 +48,36 @@ class Database
 		mysql_close($this->_connection);
 
 		if ($getId) {
+			
+			return $tmpId;
+		}
+		return $result;
+	}
+
+	protected function _sendQuery2($query, $getId = false)
+	{
+
+		$this->_connection = mysql_connect($this->_server, $this->_user, $this->_password);
+		
+		
+		
+		if (!$this->_connection){ die('Could not connect: ' . mysql_error()); }
+
+		mysql_select_db($this->_database, $this->_connection);
+		
+		mysql_query('SET CHARACTER SET utf8');
+		
+		mysql_query("SET NAMES utf8",$this->_connection);
+		//print '</br> - CHIVATO: QUERY :'.$query;
+		
+		$result = mysql_query($query, $this->_connection);
+		$tmpId  = mysql_insert_id($this->_connection);
+		mysql_query("SET NAMES utf8",$this->_connection);
+		
+		//mysql_close($this->_connection);
+
+		if ($getId) {
+			
 			return $tmpId;
 		}
 		return $result;
@@ -175,7 +205,7 @@ class Database
 		}
 
 		
-		$result = $this->_sendQuery($query);
+		$result = $this->_sendQuery2($query);
 
 		/**
 		 * If monitoring is activated, echo the query

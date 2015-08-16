@@ -35,10 +35,12 @@ class Controller {
 			{
 				session_start();
 				$_SESSION["iduser"]= $row['pk_usuario'];
-				$_SESSION["rol"]= $row['fk_perfil'];
-				if($row['fk_perfil'] == 1)
+				$_SESSION["rol"]= $row['pk_perfil'];
+				$_SESSION["nombreUsuario"]= $row['nombreUsuario'];
+				$_SESSION["nombrePerfil"]= $row['nombrePerfil'];
+				if($row['pk_perfil'] == 1)
 				{
-					header("Location: backend/menu.php");
+					header("Location: backend/cursos.php");
 				}
 				else
 				{

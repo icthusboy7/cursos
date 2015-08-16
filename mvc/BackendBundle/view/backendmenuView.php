@@ -42,7 +42,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Mantenimiento<b class=" icon-angle-down"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="typography.html">Cursos</a></li>
+                                <li><a href="cursos.php">Cursos</a></li>
                             </ul>
                         </li>
                         <li><a href="../index.php?logout=true">Salir</a></li>
