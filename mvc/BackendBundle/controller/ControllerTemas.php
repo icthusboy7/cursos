@@ -23,7 +23,6 @@ class Controller {
 	public function temasFrame()
 	{
 		
-		
 		@session_start();
 		if ($_SESSION["rol"] == 1)
 		{
@@ -136,7 +135,7 @@ class Controller {
 							$status = "Inactivo";
 						}
 						$description = sprintf('Se ha eliminado el tema con los siguientes valores:
-							</br>Código: %1$s, Nombre del tema: %2$s, Estado: %3$s, Curso: %4$s',
+							<br>Código: %1$s, Nombre del tema: %2$s, Estado: %3$s, Curso: %4$s',
 								$row['pk_curso'],
                                 $row['nombre'],
                                 $status,

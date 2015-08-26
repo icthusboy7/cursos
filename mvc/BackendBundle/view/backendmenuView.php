@@ -34,7 +34,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="menu.php"><span>C</span>ursos</a>
+                    <a class="navbar-brand" href="menu.php">FORMACION <span>C</span>ILANTROIT</a>
                 </div>
                 <div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav">

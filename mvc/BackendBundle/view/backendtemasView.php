@@ -14,7 +14,7 @@
         },
         "columnDefs": 
         [
-            { "orderable": false, "targets": [3,4] },
+            { "orderable": false, "targets": [3,4,5,6] },
             { "width": "40%", "targets": [1,2] }
         ],
         "order": [[ 0, "desc" ]]
@@ -41,15 +41,18 @@
                 <th>Estado</th>
                 <th><a id="button_excel" title ="Excel" href= "#"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/xls.png" onclick="excel(2);"></th>
                 <th><a id="button_undo" title ="Deshacer edición" href= "#"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/undo.png" onclick="buttonUndo();"></a></th>
+                <th></th>
+                <th></th>
             </tr>  
         </thead>
         <tfoot>
             <tr>
                 <th></th>
                 <th>
-                <div class="form-group">
-                    <input type="text" class="form-control" required="required" id="name" name="name" style="width:100%;"/></th>
-                </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" required="required" id="name" name="name" style="width:100%;"/>
+                    </div>
+                </th>
                 <th>
                     <div class="form-group">
                         <select class="form-control" required="required" id="status" name="status" >
@@ -79,7 +82,8 @@
                         <a id="button_edit" title ="Guardar" href= "#"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/save.png" onclick="saveRow();"></a>
                     </div>
                 </th>
-
+                <th></th>
+                <th></th>
             </tr>
         </tfoot>
 
@@ -103,7 +107,7 @@
                      ?>
                 </td>
                 <td>
-                    <img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/edit.png" onclick="editRow('<?php echo $row['pk_tema']; ?>','<?php echo $row['nombre']; ?>','<?php echo $row['status']; ?>');">
+                    <img title="Editar" style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/edit.png" onclick="editRow('<?php echo $row['pk_tema']; ?>','<?php echo $row['nombre']; ?>','<?php echo $row['status']; ?>');">
                 </td>
                 <td>
                     <?php 
@@ -114,10 +118,16 @@
                     else
                     {
                         ?>
-                        <img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/del.png" onclick="deleteRow('<?php echo $row['pk_tema']; ?>','tema');">
+                        <img title="Eliminar" style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/del.png" onclick="deleteRow('<?php echo $row['pk_tema']; ?>','tema');">
                         <?php
                     }
                     ?>
+                </td>
+                <td>
+                    <a id="button_file" title ="PDF" href= "../backend/ficheros.php?id_tema=<?php echo $row['pk_tema']; ?>" target="_top"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/file.png"></a>
+                </td>
+                <td>
+                    <a id="button_video" title ="Videos" href= "../backend/videos.php?id_tema=<?php echo $row['pk_tema']; ?>" target="_top"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/file.png"></a>
                 </td>
             </tr>
             <?php

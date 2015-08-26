@@ -32,7 +32,7 @@ class Controller {
 				
 				if($_POST['action_type'] == "add")
 				{
-					$last = $this->model->insertCurso($_POST['name'], $_POST['status']);
+					$last = $this->model->insertCursos($_POST['name'], $_POST['status']);
 					$section = "Crear cursos";
 					$description = sprintf('Nombre: %1$s, Estado: %2$s',
                                 $_POST['name'],
@@ -105,7 +105,7 @@ class Controller {
 							$status = "Inactivo";
 						}
 						$description = sprintf('Se ha eliminado el curso con los siguientes valores:
-							</br>Código: %1$s, Nombre del curso: %2$s, Estado: %3$s',
+							<br>Código: %1$s, Nombre del curso: %2$s, Estado: %3$s',
 								$row['pk_curso'],
                                 $row['nombre'],
                                 $status
@@ -130,9 +130,13 @@ class Controller {
 
 				$database = new Database();
 				$consulta = $database->selectCount('temas','*','fk_curso'.'='.$row['pk_curso']);
-
 				$fila = mysql_fetch_array($consulta);
-				$fk_curso = $fila['numRows'];
+
+				$database = new Database();
+				$consulta2 = $database->selectCount('cursos_usuarios','*','fk_curso'.'='.$row['pk_curso']);
+				$fila2 = mysql_fetch_array($consulta2);
+
+				$fk_curso = $fila['numRows'] + $fila2['numRows'];
 
 				$data[] = array(
 				"pk_curso" => $row['pk_curso'],

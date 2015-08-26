@@ -31,8 +31,7 @@
         },
         "columnDefs": 
         [
-            { "orderable": false, "targets": [3,4] },
-            { "width": "40%", "targets": [1,2] }
+            { "width": "10%", "targets": [0] }
         ],
         "order": [[ 0, "desc" ]]
     } );
@@ -62,8 +61,6 @@
                 <div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="cursos.php">Cursos</a></li>
-                        <li><a href="usuarios.php">Usuarios</a></li>
-                        <li><a href="audit.php">Auditoría</a></li>
                         <li><a href="../index.php?logout=true">Cerrar sesión</a></li>
                     </ul>
                 </div>
@@ -86,38 +83,12 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nombre</th>
-                                    <th>Estado</th>
-                                    <th><a id="button_excel" title ="Excel" href= "#"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/xls.png" onclick="excel(1);"></a></th>
-                                    <th><a id="button_undo" title ="Deshacer edición" href= "#"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/undo.png" onclick="buttonUndo();"></a></th>
                                 </tr>  
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th></th>
-                                    <th>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" required="required" id="name" name="name" style="width:100%;"/>
-                                    </div>
-                                    </th>
-                                    <th>
-                                        <div class="form-group">
-                                            <select class="form-control" required="required" id="status" name="status" >
-                                            <option value="1" <?php echo $estado == '1'?'selected':'';?>>Activo</option>
-                                            <option value="2" <?php echo $estado == '2'?'selected':'';?>>Inactivo</option>
-                                            </select>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="form-group">
-                                            <a id="button_add" title ="Agregar" href= "#"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/add.png" onclick="saveRow();"></a>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="form-group">
-                                            <a id="button_edit" title ="Guardar" href= "#"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/save.png" onclick="saveRow();"></a>
-                                        </div>
-                                    </th>
-
+                                    <th></th>
                                 </tr>
                             </tfoot>
 
@@ -126,37 +97,9 @@
                                 foreach ($data as $row)
                                 {
                                 ?>
-                                <tr style="cursor:pointer" class = "desmarcado">
+                                <tr style="cursor:pointer" class = "cursosUsuarios">
                                     <td><?php echo $row['pk_curso']; ?></td>
-                                    <td><?php echo $row['nombre']; ?></td>
-                                    <td><?php 
-                                        if($row['status'] == 1)
-                                        {
-                                            echo "Activo";
-                                        }
-                                        else
-                                        {
-                                            echo "Inactivo";
-                                        }
-                                         ?>
-                                    </td>
-                                    <td>
-                                        <img title="Editar" style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/edit.png" onclick="editRow('<?php echo $row['pk_curso']; ?>','<?php echo $row['nombre']; ?>','<?php echo $row['status']; ?>');">
-                                    </td>
-                                    <td>
-                                        <?php 
-                                        if($row['fk_curso'] > 0)
-                                        {
-                                            echo "";
-                                        }
-                                        else
-                                        {
-                                        ?>
-                                           <img title="Eliminar" style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/del.png" onclick="deleteRow('<?php echo $row['pk_curso']; ?>','curso');">
-                                        <?php 
-                                        }
-                                        ?>
-                                    </td>
+                                    <td><?php echo $row['cursoName']; ?></td>
                                 </tr>
                                 <?php
                                 }

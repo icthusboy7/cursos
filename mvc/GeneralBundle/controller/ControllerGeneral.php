@@ -33,29 +33,42 @@ class Controller {
 
 			if($row = mysql_fetch_array($rs))
 			{
+				
 				session_start();
 				$_SESSION["iduser"]= $row['pk_usuario'];
 				$_SESSION["rol"]= $row['pk_perfil'];
 				$_SESSION["nombreUsuario"]= $row['nombreUsuario'];
 				$_SESSION["nombrePerfil"]= $row['nombrePerfil'];
+
+				$section = "Inicio de sesión";
+				$fecha = date("Y-m-d H:i:s");
+				$description = sprintf('El usuario %1$s con perfil %2$s ha iniciado sesión', $row['nombreUsuario'], $row['nombrePerfil']);
+				$this->model->insertAudit($section, $fecha, $description, $row['pk_usuario']);
+
 				if($row['pk_perfil'] == 1)
 				{
+					
 					header("Location: backend/cursos.php");
 				}
 				else
 				{
-					header("Location: frontend/menu.php");
+					header("Location: frontend/cursos.php");
 				}
 
 			} 
 			else 
 			{
+				
 				$_POST["validUser"] = false;
 			}
 		}
 
 		if($_GET["logout"]==true){
 			session_start();
+			$section = "Fin de sesión";
+			$fecha = date("Y-m-d H:i:s");
+			$description = sprintf('El usuario %1$s con perfil %2$s ha finalizado la sesión', $_SESSION["nombreUsuario"], $_SESSION["nombrePerfil"]);
+			$this->model->insertAudit($section, $fecha, $description, $_SESSION["iduser"]);
 			session_destroy();	  		  		
 	  	}
 

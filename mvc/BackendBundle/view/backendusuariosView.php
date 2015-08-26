@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     include_once("../db/Connection.php");
 ?>
 
@@ -31,13 +31,20 @@
         },
         "columnDefs": 
         [
-            { "orderable": false, "targets": [3,4] },
-            { "width": "40%", "targets": [1,2] }
+            { "orderable": false, "targets": [6,7,8,9] },            
+            { "width": "17%", "targets": [5] },
+            { "width": "13%", "targets": [6] }
+            
         ],
         "order": [[ 0, "desc" ]]
     } );
 } );
 </script>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
 </head>
 <style>
@@ -47,7 +54,7 @@
 </style>
 <body>
 <div id="wrapper">
-	
+	<!-- start header -->
 	<header>
         <div class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -61,8 +68,8 @@
                 </div>
                 <div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="cursos.php">Cursos</a></li>
-                        <li><a href="usuarios.php">Usuarios</a></li>
+                        <li><a href="cursos.php">Cursos</a></li>
+                        <li class="active"><a href="usuarios.php">Usuarios</a></li>
                         <li><a href="audit.php">Auditoría</a></li>
                         <li><a href="../index.php?logout=true">Cerrar sesión</a></li>
                     </ul>
@@ -74,9 +81,9 @@
 	<section id="featured">
     	<div class="container">
     		<div class="row">
-    			<div class="col-lg-5">
+    			<div class="col-lg-12">
                     <div>
-                        <h1>Listado de cursos</h1>
+                        <h1>Listado de Usuarios</h1>
                     </div>
                     <form action="" method="POST" id="form_grid">
                         <input type="hidden" id="action_type" name="action_type" value="" />
@@ -86,9 +93,14 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nombre</th>
+                                    <th>Login</th>
+                                    <th>Contraseña</th>
+                                    <th>Email</th>
+                                    <th>Perfil</th>
                                     <th>Estado</th>
-                                    <th><a id="button_excel" title ="Excel" href= "#"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/xls.png" onclick="excel(1);"></a></th>
-                                    <th><a id="button_undo" title ="Deshacer edición" href= "#"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/undo.png" onclick="buttonUndo();"></a></th>
+                                    <th><a id="button_excel" title ="Excel" href= "#"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/xls.png" onclick="excel(5);"></a></th>
+                                    <th><a id="button_undo" title ="Deshacer edición" href= "#"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/undo.png" onclick="buttonUndoUsuarios();"></a></th>
+                                    <th></th>
                                 </tr>  
                             </thead>
                             <tfoot>
@@ -101,6 +113,35 @@
                                     </th>
                                     <th>
                                         <div class="form-group">
+                                            <input type="text" class="form-control" required="required" id="login" name="login" style="width:100%;"/>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" required="required" id="password" name="password" style="width:100%;"/>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" required="required" id="email" name="email" style="width:100%;"/>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="form-group">
+                                            <select class="form-control" required="required" id="perfil" name="perfil" >
+                                            <?php
+                                            foreach ($dataPerfil as $rowPerfil)
+                                            {
+                                            ?>    
+                                                <option value="<?php echo $rowPerfil['pk_perfil']; ?>"><?php echo $rowPerfil['perfilName']; ?></option>
+                                            <?php    
+                                            }
+                                            ?>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="form-group">
+                                            </select>
                                             <select class="form-control" required="required" id="status" name="status" >
                                             <option value="1" <?php echo $estado == '1'?'selected':'';?>>Activo</option>
                                             <option value="2" <?php echo $estado == '2'?'selected':'';?>>Inactivo</option>
@@ -109,16 +150,28 @@
                                     </th>
                                     <th>
                                         <div class="form-group">
-                                            <a id="button_add" title ="Agregar" href= "#"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/add.png" onclick="saveRow();"></a>
+                                            <a id="button_add" title ="Agregar" href= "#"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/add.png" onclick="saveUsuariosRow();"></a>
                                         </div>
                                     </th>
                                     <th>
                                         <div class="form-group">
-                                            <a id="button_edit" title ="Guardar" href= "#"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/save.png" onclick="saveRow();"></a>
+                                            <a id="button_edit" title ="Guardar" href= "#"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/save.png" onclick="saveUsuariosRow();"></a>
                                         </div>
                                     </th>
-
+                                    <th></th>
                                 </tr>
+                                <?php
+                                if($valid == false)
+                                {
+                                ?>
+                                <tr>
+                                    <th colspan="10">
+                                    <span class="help-block" style="color:red"><?php echo $errorMessage;?></span>
+                                    </th>
+                                </tr>
+                                <?php
+                                }
+                                ?>
                             </tfoot>
 
                             <tbody class="tbody-columns">
@@ -126,10 +179,15 @@
                                 foreach ($data as $row)
                                 {
                                 ?>
-                                <tr style="cursor:pointer" class = "desmarcado">
-                                    <td><?php echo $row['pk_curso']; ?></td>
-                                    <td><?php echo $row['nombre']; ?></td>
+                                <tr style="cursor:pointer" class = "desmarcadoCursoUsuario">
+                                    <td><?php echo $row['pk_usuario']; ?></td>
+                                    <td><?php echo $row['usuarioName']; ?></td>
+                                    <td><?php echo $row['login']; ?></td>
+                                    <td><?php echo $row['password']; ?></td>
+                                    <td><?php echo $row['email']; ?></td>
+                                    <td><?php echo $row['perfilName']; ?></td>
                                     <td><?php 
+                                    
                                         if($row['status'] == 1)
                                         {
                                             echo "Activo";
@@ -141,18 +199,32 @@
                                          ?>
                                     </td>
                                     <td>
-                                        <img title="Editar" style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/edit.png" onclick="editRow('<?php echo $row['pk_curso']; ?>','<?php echo $row['nombre']; ?>','<?php echo $row['status']; ?>');">
+                                        <img title="Editar" style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/edit.png" onclick="editUsuariosRow('<?php echo $row['pk_usuario']; ?>','<?php echo $row['usuarioName']; ?>','<?php echo $row['login']; ?>','<?php echo $row['password']; ?>','<?php echo $row['email']; ?>','<?php echo $row['pk_perfil']; ?>','<?php echo $row['status']; ?>');">
                                     </td>
                                     <td>
                                         <?php 
-                                        if($row['fk_curso'] > 0)
+                                        if($row['fk_usuario'] > 0)
                                         {
                                             echo "";
                                         }
                                         else
                                         {
                                         ?>
-                                           <img title="Eliminar" style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/del.png" onclick="deleteRow('<?php echo $row['pk_curso']; ?>','curso');">
+                                           <img title="Eliminar" style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/del.png" onclick="deleteRow('<?php echo $row['pk_usuario']; ?>','usuario');">
+                                        <?php 
+                                        }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php 
+                                        if($row['pk_perfil'] == 1)
+                                        {
+                                            echo "";
+                                        }
+                                        else
+                                        {
+                                        ?>
+                                            <a id="button_file" title ="Archivos" href= "../backend/usuarioscursos.php?id_usuario=<?php echo $row['pk_usuario']; ?>" target="_top"><img style = "border: 3px ridge #eee; padding:3px; background-color: #FFF;" src = "../img/file.png"></a>
                                         <?php 
                                         }
                                         ?>
@@ -165,18 +237,10 @@
                         </table>    
                     </form>
     	       </div>               
-
-               <div id="inner2" class="col-lg-5">
-
-               </div>
-
     	   </div>
-
-
     	</div>	
 	</section>
 	<footer>
-	
 		<div class="container">
 			<div class="copyright">
 				<p>
@@ -184,8 +248,6 @@
 				</p>
 			</div>
 		</div>
-				
-			
 	</footer>
 </div>
 <!-- javascript
