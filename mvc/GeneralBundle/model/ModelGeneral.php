@@ -4,7 +4,7 @@ include_once("db/Connection.php");
 
 class ModelGeneral {
 	
-	private $tableNameUsers =  'Usuarios'; // Nombre de la tabla donde estan los usuarios /user and pass
+	private $tableNameUsers =  'usuarios'; // Nombre de la tabla donde estan los usuarios /user and pass
 	
 	/*
 	 * GESTION DEL LOGIN
@@ -22,8 +22,8 @@ class ModelGeneral {
 					WHERE u.usuario =  \''.$a_user.'\'
 					AND u.password= \''.$a_passMD5.'\' 
 					AND u.status = 1';
-		
 		$consulta = $database->customQuery($query);
+		
 		return $consulta;
 	}
 

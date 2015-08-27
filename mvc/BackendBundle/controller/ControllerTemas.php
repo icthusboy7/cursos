@@ -23,6 +23,7 @@ class Controller {
 	public function temasFrame()
 	{
 		
+		
 		@session_start();
 		if ($_SESSION["rol"] == 1)
 		{

@@ -33,7 +33,6 @@ class Controller {
 
 			if($row = mysql_fetch_array($rs))
 			{
-				
 				session_start();
 				$_SESSION["iduser"]= $row['pk_usuario'];
 				$_SESSION["rol"]= $row['pk_perfil'];
@@ -58,7 +57,6 @@ class Controller {
 			} 
 			else 
 			{
-				
 				$_POST["validUser"] = false;
 			}
 		}
